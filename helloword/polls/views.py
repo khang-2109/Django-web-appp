@@ -10,8 +10,7 @@ from django.views import generic
 
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.parsers import JSONParser
-from polls.models import Snippet
-from polls.serializers import SnippetSerializer
+
 
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
@@ -58,7 +57,6 @@ def vote(request, question_id):
         selected_choice.save()
         
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
-
 
 
 class UserViewSet(viewsets.ModelViewSet):
